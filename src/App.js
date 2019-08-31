@@ -1,12 +1,16 @@
-import React from "react";
+import React, { useState } from "react";
 import MapGL from "./components/MapGL";
+import SearchBar from "./components/SearchBar";
 
-function App() {
+const App = () => {
+  const [searchVal, setSearchVal] = useState("");
   return (
     <div className="App">
-      <div>searchbar</div>
+      <SearchBar setSearchVal={setSearchVal} />
+      {searchVal}
+      <MapGL></MapGL>
     </div>
   );
-}
+};
 
 export default App;
