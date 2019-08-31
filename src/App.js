@@ -3,6 +3,7 @@ import React, { useState, useEffect } from "react";
 import SearchBar from "./components/SearchBar";
 import fsqSetup from "react-foursquare";
 import VenueItems from "./components/VenueItems";
+import "bootstrap/dist/css/bootstrap.min.css";
 
 console.log(process.env);
 
@@ -21,7 +22,8 @@ const App = () => {
   const getVenues = async (query, ll) => {
     const data = await foursquare.venues.getVenues({
       query,
-      ll: ll.join(",")
+      ll: ll.join(","),
+      limit: 5
     });
     setVenues(data.response.venues);
   };
@@ -34,9 +36,7 @@ const App = () => {
   return (
     <div className="App">
       <SearchBar setSearchVal={setQueryVal} />
-      {query}
-      {venues.length && venues.map(obj => JSON.stringify(obj))}
-      <VenueItems venues={venues}></VenueItems>
+      {venues.length && <VenueItems venues={venues} />}
       {/* <MapGL></MapGL> */}
     </div>
   );
