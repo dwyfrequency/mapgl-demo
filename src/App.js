@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from "react";
-import MapGL from "./components/MapGL";
+// import MapGL from "./components/MapGL";
 import SearchBar from "./components/SearchBar";
 import fsqSetup from "react-foursquare";
+import VenueItems from "./components/VenueItems";
 
 console.log(process.env);
 
@@ -35,7 +36,8 @@ const App = () => {
       <SearchBar setSearchVal={setQueryVal} />
       {query}
       {venues.length && venues.map(obj => JSON.stringify(obj))}
-      <MapGL></MapGL>
+      <VenueItems venues={venues}></VenueItems>
+      {/* <MapGL></MapGL> */}
     </div>
   );
 };
