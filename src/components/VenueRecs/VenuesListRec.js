@@ -23,7 +23,7 @@ const VenuesListRecom = ({ foursquare }) => {
   return (
     <div className="App">
       <SearchBar setSearchVal={setQueryVal} />
-      {venues.length ? JSON.stringify(venues) : null}
+      {/* {venues.length ? JSON.stringify(venues) : null} */}
       {venues.length ? <VenueRecItems venues={venues} /> : null}
       {/* <MapGL></MapGL> */}
     </div>
