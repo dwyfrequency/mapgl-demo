@@ -19,7 +19,6 @@ const VenuesListRecom = ({ foursquare }) => {
     if (query) getVenues(query, [40.73061, -73.935242]);
   }, [query, foursquare]);
 
-  console.log({ venues });
   return (
     <div className="App">
       <SearchBar setSearchVal={setQueryVal} />
