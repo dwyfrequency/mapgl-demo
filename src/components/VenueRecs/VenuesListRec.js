@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import SearchBar from "../SearchBar";
-import VenueItems from "../Venues/VenueItems";
+import VenueRecItems from "./VenueRecItems";
 
 const VenuesListRecom = ({ foursquare }) => {
   const [query, setQueryVal] = useState("");
@@ -24,7 +24,7 @@ const VenuesListRecom = ({ foursquare }) => {
     <div className="App">
       <SearchBar setSearchVal={setQueryVal} />
       {venues.length ? JSON.stringify(venues) : null}
-      {/* {venues.length ? <VenueItems venues={venues} /> : null} */}
+      {venues.length ? <VenueRecItems venues={venues} /> : null}
       {/* <MapGL></MapGL> */}
     </div>
   );

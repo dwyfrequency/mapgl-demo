@@ -4,7 +4,7 @@ import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 import fsqSetup from "react-foursquare";
 import VenuesList from "./components/Venues/VenuesList";
 import NavBar from "./components/NavBar";
-import VenuesListRecom from "./components/VenueRecs/VenuesListRecom";
+import VenuesListRec from "./components/VenueRecs/VenuesListRec";
 
 console.log(process.env);
 
@@ -28,7 +28,7 @@ const App = () => {
       />
       <Route
         path={"/venues/recommendations"}
-        render={() => <VenuesListRecom foursquare={foursquare} />}
+        render={() => <VenuesListRec foursquare={foursquare} />}
       />
     </Router>
   );
