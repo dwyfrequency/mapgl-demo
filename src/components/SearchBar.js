@@ -13,29 +13,27 @@ const SearchBar = ({ setSearchVal }) => {
   };
 
   return (
-    <div className="form-group">
-      <input
-        type="text"
-        className="form-control"
-        id="inputAddress"
-        name="search"
-        value={inputVal}
-        onChange={handleChange}
-        placeholder="Venue Name"
-      />
-      <button type="button" className="btn btn-primary" onClick={handleSubmit}>
+    <form className="form-inline">
+      <div className="form-group mx-sm-3 mt-2">
+        <input
+          type="text"
+          className="form-control"
+          id="inputAddress"
+          name="search"
+          value={inputVal}
+          onChange={handleChange}
+          placeholder="Venue Name"
+        />
+      </div>
+      <button
+        type="button"
+        className="btn btn-primary mt-2"
+        onClick={handleSubmit}
+      >
         Primary
       </button>
-    </div>
+    </form>
   );
-
-  // return (
-  //   <div>
-  //     <form onSubmit={handleSubmit}>
-  //       <input name="search" value={inputVal} onChange={handleChange} />
-  //     </form>
-  //   </div>
-  // );
 };
 
 export default SearchBar;

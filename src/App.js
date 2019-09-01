@@ -3,7 +3,6 @@ import React, { useState, useEffect } from "react";
 import SearchBar from "./components/SearchBar";
 import fsqSetup from "react-foursquare";
 import VenueItems from "./components/VenueItems";
-import "bootstrap/dist/css/bootstrap.min.css";
 
 console.log(process.env);
 
@@ -36,7 +35,7 @@ const App = () => {
   return (
     <div className="App">
       <SearchBar setSearchVal={setQueryVal} />
-      {venues.length && <VenueItems venues={venues} />}
+      {venues.length ? <VenueItems venues={venues} /> : null}
       {/* <MapGL></MapGL> */}
     </div>
   );
