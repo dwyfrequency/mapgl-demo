@@ -2,9 +2,9 @@ import React, { useState, useEffect } from "react";
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 // import MapGL from "./components/MapGL";
 import fsqSetup from "react-foursquare";
-import VenuesList from "./components/VenuesList";
+import VenuesList from "./components/Venues/VenuesList";
 import NavBar from "./components/NavBar";
-import VenuesListRecom from "./components/VenuesListRecom";
+import VenuesListRecom from "./components/VenueRecs/VenuesListRecom";
 
 console.log(process.env);
 
