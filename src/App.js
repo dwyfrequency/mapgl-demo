@@ -5,9 +5,7 @@ import fsqSetup from "react-foursquare";
 import VenuesList from "./components/Venues/VenuesList";
 import NavBar from "./components/NavBar";
 import VenuesListRec from "./components/VenueRecs/VenuesListRec";
-import MapGL from "./components/MapGL";
-
-console.log(process.env);
+// import MapGL from "./components/VenueRecs/MapGL";
 
 // https://stackoverflow.com/questions/48699820/how-do-i-hide-api-key-in-create-react-app
 const CLIENT_ID = process.env.REACT_APP_CLIENT_ID;
@@ -33,10 +31,10 @@ const App = () => {
         path={"/venues/recommendations"}
         render={() => <VenuesListRec foursquare={foursquare} latlon={latlon} />}
       />{" "}
-      <Route
+      {/* <Route
         path={"/venues/recommendations/map"}
         render={() => <MapGL latlon={latlon} />}
-      />
+      /> */}
     </Router>
   );
 };
