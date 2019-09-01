@@ -13,7 +13,7 @@ const SearchBar = ({ setSearchVal }) => {
   };
 
   return (
-    <form className="form-inline">
+    <form className="form-inline justify-content-center mb-2">
       <div className="form-group mx-sm-3 mt-2">
         <input
           type="text"

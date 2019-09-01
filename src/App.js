@@ -1,8 +1,10 @@
 import React, { useState, useEffect } from "react";
+import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 // import MapGL from "./components/MapGL";
 import SearchBar from "./components/SearchBar";
 import fsqSetup from "react-foursquare";
 import VenueItems from "./components/VenueItems";
+import VenuesList from "./components/VenuesList";
 
 console.log(process.env);
 
@@ -16,28 +18,19 @@ const foursquare = fsqSetup({
 });
 
 const App = () => {
-  const [query, setQueryVal] = useState("");
-  const [venues, setVenues] = useState([]);
-  const getVenues = async (query, ll) => {
-    const data = await foursquare.venues.getVenues({
-      query,
-      ll: ll.join(","),
-      limit: 5
-    });
-    setVenues(data.response.venues);
-  };
-
-  useEffect(() => {
-    if (query) getVenues(query, [40.73061, -73.935242]);
-  }, [query]);
-
-  console.log({ venues });
+  // return <VenuesList foursquare={foursquare} />;
   return (
-    <div className="App">
-      <SearchBar setSearchVal={setQueryVal} />
-      {venues.length ? <VenueItems venues={venues} /> : null}
-      {/* <MapGL></MapGL> */}
-    </div>
+    <Router>
+      <Route
+        path={"/"}
+        render={() => (
+          <ul>
+            <Link to={"/venueslist"}>List Venues via Search</Link>
+          </ul>
+        )}
+      />
+      <Route path={"/venueslist"} component={VenuesList} />
+    </Router>
   );
 };
 
