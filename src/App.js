@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from "react";
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 // import MapGL from "./components/MapGL";
-import SearchBar from "./components/SearchBar";
 import fsqSetup from "react-foursquare";
-import VenueItems from "./components/VenueItems";
 import VenuesList from "./components/VenuesList";
+import links from "./constants/links";
+import NavBar from "./components/NavBar";
 
 console.log(process.env);
 
@@ -21,14 +21,7 @@ const App = () => {
   // return <VenuesList foursquare={foursquare} />;
   return (
     <Router>
-      <Route
-        path={"/"}
-        render={() => (
-          <ul>
-            <Link to={"/venueslist"}>List Venues via Search</Link>
-          </ul>
-        )}
-      />
+      <Route path={"/"} component={NavBar}></Route>
       <Route path={"/venueslist"} component={VenuesList} />
     </Router>
   );
