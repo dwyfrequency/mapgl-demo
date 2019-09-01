@@ -5,7 +5,9 @@ const Map = ReactMapboxGl({
   accessToken: process.env.REACT_APP_MAPGL_ACCESS_CODE
 });
 
-const MapGL = () => {
+const MapGL = ({ latlon }) => {
+  latlon = latlon.reverse();
+  console.log(latlon);
   return (
     <div>
       <Map
@@ -14,9 +16,10 @@ const MapGL = () => {
           height: "50vh",
           width: "100vw"
         }}
+        center={latlon || [-73.935242, 40.73061]}
       >
         <Layer type="symbol" id="marker" layout={{ "icon-image": "marker-15" }}>
-          <Feature coordinates={[-0.481747846041145, 51.3233379650232]} />
+          <Feature coordinates={latlon || [-73.935242, 40.73061]} />
         </Layer>
       </Map>
     </div>

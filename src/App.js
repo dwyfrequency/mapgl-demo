@@ -1,10 +1,11 @@
-import React, { useState, useEffect } from "react";
-import { BrowserRouter as Router, Route, Link } from "react-router-dom";
+import React, { useState } from "react";
+import { BrowserRouter as Router, Route } from "react-router-dom";
 // import MapGL from "./components/MapGL";
 import fsqSetup from "react-foursquare";
 import VenuesList from "./components/Venues/VenuesList";
 import NavBar from "./components/NavBar";
 import VenuesListRec from "./components/VenueRecs/VenuesListRec";
+import MapGL from "./components/MapGL";
 
 console.log(process.env);
 
@@ -31,6 +32,10 @@ const App = () => {
       <Route
         path={"/venues/recommendations"}
         render={() => <VenuesListRec foursquare={foursquare} latlon={latlon} />}
+      />{" "}
+      <Route
+        path={"/venues/recommendations/map"}
+        render={() => <MapGL latlon={latlon} />}
       />
     </Router>
   );
