@@ -39,9 +39,11 @@ const MapGL = ({ venues = [], latlon }) => {
         }}
         center={latlon || [-73.935242, 40.73061]}
       >
+        {/* markers are the black location signs */}
         <Layer type="symbol" id="marker" layout={{ "icon-image": "marker-15" }}>
           {features}
         </Layer>
+        {/* popups are the white areas coming out of the map */}
         {popups}
       </Map>
     </div>
