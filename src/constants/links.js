@@ -1,5 +1,5 @@
 export default {
   Home: "/",
-  "List Venues via Search": "/venueslist",
-  Test: "/blem"
+  "List Venues": "/venues/list",
+  "List Recommended Venues": "/venues/recommendations"
 };

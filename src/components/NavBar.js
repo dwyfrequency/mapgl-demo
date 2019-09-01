@@ -23,7 +23,7 @@ const NavBar = () => {
       <div className="collapse navbar-collapse" id="navbarNavAltMarkup">
         <div className="navbar-nav">
           {Object.entries(links).map(([textVal, path]) => (
-            <Link className="nav-item nav-link" to={path}>
+            <Link className="nav-item nav-link" to={path} key={textVal}>
               {textVal}
             </Link>
           ))}

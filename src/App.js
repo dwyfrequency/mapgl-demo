@@ -3,8 +3,8 @@ import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 // import MapGL from "./components/MapGL";
 import fsqSetup from "react-foursquare";
 import VenuesList from "./components/VenuesList";
-import links from "./constants/links";
 import NavBar from "./components/NavBar";
+import VenuesListRecom from "./components/VenuesListRecom";
 
 console.log(process.env);
 
@@ -22,7 +22,14 @@ const App = () => {
   return (
     <Router>
       <Route path={"/"} component={NavBar}></Route>
-      <Route path={"/venueslist"} component={VenuesList} />
+      <Route
+        path={"/venues/list"}
+        render={() => <VenuesList foursquare={foursquare} />}
+      />
+      <Route
+        path={"/venues/recommendations"}
+        render={() => <VenuesList foursquare={foursquare} />}
+      />
     </Router>
   );
 };
