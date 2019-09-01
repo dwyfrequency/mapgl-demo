@@ -28,7 +28,7 @@ const App = () => {
       />
       <Route
         path={"/venues/recommendations"}
-        render={() => <VenuesList foursquare={foursquare} />}
+        render={() => <VenuesListRecom foursquare={foursquare} />}
       />
     </Router>
   );

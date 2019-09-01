@@ -13,7 +13,8 @@ const VenuesListRecom = ({ foursquare }) => {
         ll: ll.join(","),
         limit: 5
       });
-      setVenues(data.response.venues);
+      console.log({ data });
+      setVenues(data.response.group.results || []);
     };
     if (query) getVenues(query, [40.73061, -73.935242]);
   }, [query, foursquare]);
@@ -22,7 +23,8 @@ const VenuesListRecom = ({ foursquare }) => {
   return (
     <div className="App">
       <SearchBar setSearchVal={setQueryVal} />
-      {venues.length ? <VenueItems venues={venues} /> : null}
+      {venues.length ? JSON.stringify(venues) : null}
+      {/* {venues.length ? <VenueItems venues={venues} /> : null} */}
       {/* <MapGL></MapGL> */}
     </div>
   );
