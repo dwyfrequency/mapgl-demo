@@ -14,13 +14,14 @@ const VenueRecCard = props => {
           <li onClick={() => "clicked"} className="list-group-item">
             <div className="venue-list media">
               <div className="media-left">
-                <img className="media-object" src={photoUrl} />
+                <img className="media-object" src={photoUrl} alt="venue" />
               </div>
               <div className="media-body pl-4">
                 <div className="media-heading">
                   <a
                     href={`https://foursquare.com/v/${venue.id}`}
                     target="_blank"
+                    rel="noopener noreferrer"
                   >
                     {venue.name}
                   </a>
