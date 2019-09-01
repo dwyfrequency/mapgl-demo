@@ -19,16 +19,18 @@ const foursquare = fsqSetup({
 
 const App = () => {
   // return <VenuesList foursquare={foursquare} />;
+
+  const [latlon, setlatlon] = useState([40.73061, -73.935242]);
   return (
     <Router>
       <Route path={"/"} component={NavBar}></Route>
       <Route
         path={"/venues/list"}
-        render={() => <VenuesList foursquare={foursquare} />}
+        render={() => <VenuesList foursquare={foursquare} latlon={latlon} />}
       />
       <Route
         path={"/venues/recommendations"}
-        render={() => <VenuesListRec foursquare={foursquare} />}
+        render={() => <VenuesListRec foursquare={foursquare} latlon={latlon} />}
       />
     </Router>
   );

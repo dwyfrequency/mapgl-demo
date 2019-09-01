@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import SearchBar from "../SearchBar";
 import VenueItems from "./VenueItems";
 
-const VenuesList = ({ foursquare }) => {
+const VenuesList = ({ foursquare, latlon }) => {
   const [query, setQueryVal] = useState("");
   const [venues, setVenues] = useState([]);
 
@@ -15,8 +15,8 @@ const VenuesList = ({ foursquare }) => {
       });
       setVenues(data.response.venues);
     };
-    if (query) getVenues(query, [40.73061, -73.935242]);
-  }, [query, foursquare]);
+    if (query) getVenues(query, latlon);
+  }, [query, foursquare, latlon]);
 
   return (
     <div className="App">

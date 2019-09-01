@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import SearchBar from "../SearchBar";
 import VenueRecItems from "./VenueRecItems";
 
-const VenuesListRecom = ({ foursquare }) => {
+const VenuesListRecom = ({ foursquare, latlon }) => {
   const [query, setQueryVal] = useState("");
   const [venues, setVenues] = useState([]);
 
@@ -16,8 +16,8 @@ const VenuesListRecom = ({ foursquare }) => {
       console.log({ data });
       setVenues(data.response.group.results || []);
     };
-    if (query) getVenues(query, [40.73061, -73.935242]);
-  }, [query, foursquare]);
+    if (query) getVenues(query, latlon);
+  }, [query, foursquare, latlon]);
 
   return (
     <div className="App">
