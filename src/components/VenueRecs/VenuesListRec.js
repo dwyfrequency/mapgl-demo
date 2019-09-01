@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import SearchBar from "../SearchBar";
 import VenueRecItems from "./VenueRecItems";
+import MapGL from "./MapGL";
 
 const VenuesListRecom = ({ foursquare, latlon }) => {
   const [query, setQueryVal] = useState("");
@@ -13,7 +14,6 @@ const VenuesListRecom = ({ foursquare, latlon }) => {
         ll: ll.join(","),
         limit: 5
       });
-      console.log({ data });
       setVenues(data.response.group.results || []);
     };
     if (query) getVenues(query, latlon);
@@ -24,7 +24,7 @@ const VenuesListRecom = ({ foursquare, latlon }) => {
       <SearchBar setSearchVal={setQueryVal} />
       {/* {venues.length ? JSON.stringify(venues) : null} */}
       {venues.length ? <VenueRecItems venues={venues} /> : null}
-      {/* <MapGL></MapGL> */}
+      <MapGL latlon={latlon} venues={venues}></MapGL>
     </div>
   );
 };

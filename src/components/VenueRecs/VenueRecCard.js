@@ -5,7 +5,6 @@ const VenueRecCard = props => {
   const photoUrl = photo
     ? `${photo.prefix}200x200${photo.suffix}`
     : "https://source.unsplash.com/random/200x200";
-  console.log({ venue });
   return (
     <div className="container">
       <div className="row">

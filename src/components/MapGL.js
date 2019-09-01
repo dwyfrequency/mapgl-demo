@@ -7,7 +7,6 @@ const Map = ReactMapboxGl({
 
 const MapGL = ({ latlon }) => {
   latlon = latlon.reverse();
-  console.log(latlon);
   return (
     <div>
       <Map
