@@ -37,6 +37,7 @@ const MapGL = ({ venues = [], latlon }) => {
           width: "100vw"
         }}
         center={latlon || [-73.935242, 40.73061]}
+        zoom={[12]}
       >
         {/* markers are the black location signs */}
         <Layer type="symbol" id="marker" layout={{ "icon-image": "marker-15" }}>

@@ -31,10 +31,6 @@ const App = () => {
         path={"/venues/recommendations"}
         render={() => <VenuesListRec foursquare={foursquare} latlon={latlon} />}
       />{" "}
-      {/* <Route
-        path={"/venues/recommendations/map"}
-        render={() => <MapGL latlon={latlon} />}
-      /> */}
     </Router>
   );
 };
