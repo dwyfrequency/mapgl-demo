@@ -7,7 +7,6 @@ const Map = ReactMapboxGl({
 
 const MapGL = ({ venues = [], latlon }) => {
   latlon = latlon.reverse();
-  console.log({ venues });
   const features = [],
     popups = [];
   venues.forEach(({ id, venue }) => {
