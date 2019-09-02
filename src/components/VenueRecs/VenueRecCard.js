@@ -1,4 +1,5 @@
 import React from "react";
+import { FaStar } from "react-icons/fa";
 
 const VenueRecCard = props => {
   const { photo, venue } = props;
@@ -26,7 +27,10 @@ const VenueRecCard = props => {
                   </a>
                 </div>
                 <div>{venue.location.formattedAddress.join(" ")}</div>
-                <div className="rating">{venue.rating}</div>
+                <div style={{ display: "flex", alignItems: "center" }}>
+                  <FaStar />
+                  <span className="pl-2">{venue.rating}</span>
+                </div>
               </div>
             </div>
           </li>
