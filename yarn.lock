@@ -814,6 +814,13 @@
   resolved "https://registry.yarnpkg.com/@csstools/normalize.css/-/normalize.css-9.0.1.tgz#c27b391d8457d1e893f1eddeaf5e5412d12ffbb5"
   integrity sha512-6It2EVfGskxZCQhuykrfnALg7oVeiI6KclWSmGDqB0AiInVrTGB9Jp9i4/Ad21u9Jde/voVQz6eFX/eSg/UsPA==
 
+"@foursquare/foursquare-places@^1.0.1":
+  version "1.0.1"
+  resolved "https://registry.yarnpkg.com/@foursquare/foursquare-places/-/foursquare-places-1.0.1.tgz#2f4cbde40bfc47a3585c78ca1d6035cdef0a99c2"
+  integrity sha512-6kthBqbB6vLTHGLsgdYby8xgUfsBLITyqK1SVPRS5nLNqbYTvCoHZstnTiwIjgthSpGs4rMIBSbG13tyNWmSmQ==
+  dependencies:
+    axios "^0.19.0"
+
 "@hapi/address@2.x.x":
   version "2.0.0"
   resolved "https://registry.yarnpkg.com/@hapi/address/-/address-2.0.0.tgz#9f05469c88cb2fd3dcd624776b54ee95c312126a"
@@ -8164,11 +8171,6 @@ react-error-overlay@^6.0.1:
   version "6.0.1"
   resolved "https://registry.yarnpkg.com/react-error-overlay/-/react-error-overlay-6.0.1.tgz#b8d3cf9bb991c02883225c48044cb3ee20413e0f"
   integrity sha512-V9yoTr6MeZXPPd4nV/05eCBvGH9cGzc52FN8fs0O0TVQ3HYYf1n7EgZVtHbldRq5xU9zEzoXIITjYNIfxDDdUw==
-
-react-foursquare@^1.0.3:
-  version "1.0.3"
-  resolved "https://foursquaredev.jfrog.io/foursquaredev/api/npm/npm/react-foursquare/-/react-foursquare-1.0.3.tgz#6ddcdc0eb2942f75dbc03a73262c52ee917a0cf8"
-  integrity sha1-bdzcDrKUL3XbwDpzJixS7pF6DPg=
 
 react-icons@^3.7.0:
   version "3.7.0"

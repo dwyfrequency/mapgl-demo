@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import { BrowserRouter as Router, Route } from "react-router-dom";
 // import MapGL from "./components/MapGL";
-import fsqSetup from "react-foursquare";
 import Foursquare from "@foursquare/foursquare-places";
 import VenuesList from "./components/Venues/VenuesList";
 import NavBar from "./components/NavBar";
@@ -11,11 +10,6 @@ import VenuesListRec from "./components/VenueRecs/VenuesListRec";
 // https://stackoverflow.com/questions/48699820/how-do-i-hide-api-key-in-create-react-app
 const CLIENT_ID = process.env.REACT_APP_CLIENT_ID;
 const CLIENT_SECRET = process.env.REACT_APP_CLIENT_SECRET;
-
-// const foursquare = fsqSetup({
-//   clientID: CLIENT_ID,
-//   clientSecret: CLIENT_SECRET
-// });
 
 const foursquare = new Foursquare(CLIENT_ID, CLIENT_SECRET);
 
