@@ -13,11 +13,8 @@ const SearchBar = ({ setSearchVal }) => {
   };
 
   return (
-    <form
-      className="form-inline justify-content-center mb-2"
-      onSubmit={handleSubmit}
-    >
-      <div className="form-group mx-sm-3 mt-2">
+    <form className="form-inline" onSubmit={handleSubmit}>
+      <div className="col-sm-3 my-1">
         <input
           type="text"
           className="form-control"
@@ -28,9 +25,19 @@ const SearchBar = ({ setSearchVal }) => {
           placeholder="Venue Name"
         />
       </div>
-      <button type="submit" className="btn btn-primary mt-2">
-        Primary
-      </button>
+      <div className="col-sm-3 my-1">
+        <input
+          className="form-control"
+          value={inputVal}
+          onChange={handleChange}
+          placeholder="City Name or Lat/Long"
+        />
+      </div>
+      <div className="col-sm-3 my-1">
+        <button type="submit" className="btn btn-primary">
+          Submit
+        </button>
+      </div>
     </form>
   );
 };
