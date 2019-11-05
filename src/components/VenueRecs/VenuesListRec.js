@@ -3,7 +3,7 @@ import SearchBar from "../SearchBar";
 import VenueRecItems from "./VenueRecItems";
 import MapGL from "./MapGL";
 
-const VenuesListRecom = ({ foursquare, latlon }) => {
+const VenuesListRecom = ({ foursquare, latlon = [40.73061, -73.935242] }) => {
   const [query, setQueryVal] = useState("");
   const [venues, setVenues] = useState([]);
 

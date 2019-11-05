@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import SearchBar from "../SearchBar";
 import VenueItems from "./VenueItems";
 
-const VenuesList = ({ foursquare, latlon }) => {
+const VenuesList = ({ foursquare, latlon = [40.73061, -73.935242] }) => {
   const [query, setQueryVal] = useState("");
   const [venues, setVenues] = useState([]);
 

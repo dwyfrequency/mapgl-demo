@@ -1,15 +1,20 @@
 import React, { useState } from "react";
 
 const SearchBar = ({ setSearchVal }) => {
-  const [inputVal, setInputVal] = useState("");
+  const [venueName, setVenueName] = useState("");
+  const [latlon, setLatLon] = useState("");
+
   const handleChange = e => {
-    setInputVal(e.target.value);
+    const { name, value } = e.target;
+    if (name === "venueName") setVenueName(value);
+    if (name === "near") setLatLon(value);
   };
 
   const handleSubmit = e => {
     e.preventDefault();
-    setSearchVal(inputVal);
-    setInputVal("");
+    setSearchVal(venueName);
+    setVenueName("");
+    setLatLon("");
   };
 
   return (
@@ -19,8 +24,8 @@ const SearchBar = ({ setSearchVal }) => {
           type="text"
           className="form-control"
           id="inputAddress"
-          name="search"
-          value={inputVal}
+          name="venueName"
+          value={venueName}
           onChange={handleChange}
           placeholder="Venue Name"
         />
@@ -28,9 +33,10 @@ const SearchBar = ({ setSearchVal }) => {
       <div className="col-sm-3 my-1">
         <input
           className="form-control"
-          value={inputVal}
+          name="near"
+          value={latlon}
           onChange={handleChange}
-          placeholder="City Name or Lat/Long"
+          placeholder="Lat,Long"
         />
       </div>
       <div className="col-sm-3 my-1">

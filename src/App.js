@@ -16,17 +16,16 @@ const foursquare = new Foursquare(CLIENT_ID, CLIENT_SECRET);
 const App = () => {
   // return <VenuesList foursquare={foursquare} />;
 
-  const [latlon, setlatlon] = useState([40.73061, -73.935242]);
   return (
     <Router>
       <Route path={"/"} component={NavBar}></Route>
       <Route
         path={"/venues/list"}
-        render={() => <VenuesList foursquare={foursquare} latlon={latlon} />}
+        render={() => <VenuesList foursquare={foursquare} />}
       />
       <Route
         path={"/venues/recommendations"}
-        render={() => <VenuesListRec foursquare={foursquare} latlon={latlon} />}
+        render={() => <VenuesListRec foursquare={foursquare} />}
       />{" "}
     </Router>
   );
