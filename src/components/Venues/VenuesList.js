@@ -5,18 +5,19 @@ import VenueItems from "./VenueItems";
 const VenuesList = ({ foursquare, latlon = [40.73061, -73.935242] }) => {
   const [query, setQueryVal] = useState("");
   const [venues, setVenues] = useState([]);
+  const [lat, lon] = latlon;
 
   useEffect(() => {
-    const getVenues = async (query, ll) => {
+    const getVenues = async (query, lat, lon) => {
       const data = await foursquare.venues.getVenues({
         query,
-        ll: ll.join(","),
+        ll: `${lat},${lon}`,
         limit: 5
       });
       setVenues(data.response.venues);
     };
-    if (query) getVenues(query, latlon);
-  }, [query, foursquare, latlon]);
+    if (query) getVenues(query, lat, lon);
+  }, [query, foursquare, lat, lon]);
 
   return (
     <div className="App">
