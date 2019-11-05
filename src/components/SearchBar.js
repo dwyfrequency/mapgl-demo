@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-const SearchBar = ({ setSearchVal }) => {
+const SearchBar = ({ setSearchVal, setLatLon: setLatLonParent }) => {
   const [venueName, setVenueName] = useState("");
   const [latlon, setLatLon] = useState("");
 
@@ -12,7 +12,12 @@ const SearchBar = ({ setSearchVal }) => {
 
   const handleSubmit = e => {
     e.preventDefault();
-    setSearchVal(venueName);
+    if (venueName.length) {
+      setSearchVal(venueName);
+    }
+    if (latlon.indexOf(",") > -1) {
+      setLatLonParent(latlon.split(","));
+    }
     setVenueName("");
     setLatLon("");
   };

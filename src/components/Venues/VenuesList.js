@@ -2,9 +2,10 @@ import React, { useState, useEffect } from "react";
 import SearchBar from "../SearchBar";
 import VenueItems from "./VenueItems";
 
-const VenuesList = ({ foursquare, latlon = [40.73061, -73.935242] }) => {
+const VenuesList = ({ foursquare }) => {
   const [query, setQueryVal] = useState("");
   const [venues, setVenues] = useState([]);
+  const [latlon, setLatLon] = useState([40.73061, -73.935242]);
   const [lat, lon] = latlon;
 
   useEffect(() => {
@@ -21,7 +22,7 @@ const VenuesList = ({ foursquare, latlon = [40.73061, -73.935242] }) => {
 
   return (
     <div className="App">
-      <SearchBar setSearchVal={setQueryVal} />
+      <SearchBar setSearchVal={setQueryVal} setLatLon={setLatLon} />
       {venues.length ? <VenueItems venues={venues} /> : null}
       {/* <MapGL></MapGL> */}
     </div>
