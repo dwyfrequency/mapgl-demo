@@ -5,20 +5,20 @@ import VenueItems from "./VenueItems";
 const VenuesList = ({ foursquare }) => {
   const [query, setQueryVal] = useState("");
   const [venues, setVenues] = useState([]);
-  const [latlon, setLatLon] = useState([40.73061, -73.935242]);
-  const [lat, lon] = latlon;
+  const [latlon, setLatLon] = useState("40.73061,-73.935242");
 
   useEffect(() => {
-    const getVenues = async (query, lat, lon) => {
+    console.log("VenuesList useEffect");
+    const getVenues = async (query, latlon) => {
       const data = await foursquare.venues.getVenues({
         query,
-        ll: `${lat},${lon}`,
+        ll: latlon,
         limit: 5
       });
-      setVenues(data.response.venues);
+      setVenues(data.response.venues || []);
     };
-    if (query) getVenues(query, lat, lon);
-  }, [query, foursquare, lat, lon]);
+    if (query) getVenues(query, latlon);
+  }, [query, foursquare, latlon]);
 
   return (
     <div className="App">
