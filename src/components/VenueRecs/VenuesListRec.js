@@ -6,13 +6,10 @@ import MapGL from "./MapGL";
 const VenuesListRecom = ({ foursquare }) => {
   const [query, setQueryVal] = useState("");
   const [venues, setVenues] = useState([]);
-  // 40.769920,-73.956320
   const [latlon, setLatLon] = useState("40.73061,-73.935242");
 
   useEffect(() => {
     const getVenues = async (query, latlon) => {
-      console.log("VenuesList VenuesListRecom", { latlon });
-
       const data = await foursquare.venues.recommendations({
         query,
         ll: latlon,
