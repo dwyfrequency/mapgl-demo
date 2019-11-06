@@ -8,7 +8,6 @@ const VenuesList = ({ foursquare }) => {
   const [latlon, setLatLon] = useState("40.73061,-73.935242");
 
   useEffect(() => {
-    console.log("VenuesList useEffect");
     const getVenues = async (query, latlon) => {
       const data = await foursquare.venues.getVenues({
         query,
