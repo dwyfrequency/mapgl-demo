@@ -16,7 +16,7 @@ const SearchBar = ({ setSearchVal, setLatLon: setLatLonParent }) => {
       setSearchVal(venueName);
     }
     if (latlon.indexOf(",") > -1) {
-      setLatLonParent(latlon.split(","));
+      setLatLonParent(latlon);
     }
     setVenueName("");
     setLatLon("");
