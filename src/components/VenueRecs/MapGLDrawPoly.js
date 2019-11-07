@@ -20,8 +20,28 @@ class MapGLDrawPoly extends Component {
   };
 
   render() {
-    let { latlon } = this.props;
-
+    let { latlon, venues = [] } = this.props;
+    const features = [],
+      popups = [];
+    venues.forEach(({ id, venue }) => {
+      const {
+        name,
+        url,
+        location: { lat, lng }
+      } = venue;
+      features.push(<Feature key={id} coordinates={[lng, lat]} />);
+      popups.push(
+        <Popup
+          key={id}
+          coordinates={[lng, lat]}
+          anchor="bottom"
+          className="popup"
+          onClick={() => window.open(url)}
+        >
+          <p>{name}</p>
+        </Popup>
+      );
+    });
     return (
       <div>
         <Map
@@ -38,6 +58,16 @@ class MapGLDrawPoly extends Component {
               this.drawControl = drawControl;
             }}
           />
+          {/* markers are the black location signs */}
+          <Layer
+            type="symbol"
+            id="marker"
+            layout={{ "icon-image": "marker-15" }}
+          >
+            {features}
+          </Layer>
+          {/* popups are the white areas coming out of the map */}
+          {popups}
         </Map>
         <button onClick={this.handleButtonClick}>Get Polygon Data</button>
       </div>

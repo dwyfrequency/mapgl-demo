@@ -36,6 +36,7 @@ const VenuesListRecPoly = ({ foursquare }) => {
       <MapGLDrawPoly
         latlon={latlon.split(",")}
         setPolygonCoords={setPolygonCoords}
+        venues={venues}
       />
       {venues.length ? <VenueRecItems venues={venues} /> : null}
     </div>
