@@ -4,6 +4,7 @@ import Foursquare from "@foursquare/foursquare-places";
 import VenuesList from "./components/Venues/VenuesList";
 import NavBar from "./components/NavBar";
 import VenuesListRec from "./components/VenueRecs/VenuesListRec";
+import VenuesListRecPoly from "./components/VenueRecs/VenuesListRecPoly";
 
 // https://stackoverflow.com/questions/48699820/how-do-i-hide-api-key-in-create-react-app
 const CLIENT_ID = process.env.REACT_APP_CLIENT_ID;
@@ -28,7 +29,9 @@ const App = () => {
       />{" "}
       <Route
         path={"/venues/recommendations/poly"}
-        render={() => <h1>Hello</h1>}
+        render={() => (
+          <VenuesListRecPoly foursquare={foursquare}></VenuesListRecPoly>
+        )}
       />{" "}
     </Router>
   );
