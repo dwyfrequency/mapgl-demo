@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import ReactMapboxGl, { Layer, Feature, Popup } from "react-mapbox-gl";
 import DrawControl from "react-mapbox-gl-draw";
+import SearchBarPoly from "./SearchBarPoly";
 
 import "@mapbox/mapbox-gl-draw/dist/mapbox-gl-draw.css";
 
@@ -47,7 +48,7 @@ class MapGLDrawPoly extends Component {
         <Map
           style="mapbox://styles/mapbox/streets-v9"
           containerStyle={{
-            height: "80vh",
+            height: "70vh",
             width: "100vw"
           }}
           center={latlon.reverse() || [-73.935242, 40.73061]}
@@ -69,7 +70,10 @@ class MapGLDrawPoly extends Component {
           {/* popups are the white areas coming out of the map */}
           {popups}
         </Map>
-        <button onClick={this.handleButtonClick}>Get Polygon Data</button>
+        <SearchBarPoly
+          setSearchVal={this.props.setQueryVal}
+          setPolyCoords={this.handleButtonClick}
+        />
       </div>
     );
   }
