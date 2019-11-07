@@ -1,5 +1,4 @@
-import React, { useState, useEffect, useRef } from "react";
-import SearchBar from "../SearchBar";
+import React, { useState, useEffect } from "react";
 import VenueRecItems from "./VenueRecItems";
 import MapGLDrawPoly from "./MapGLDrawPoly";
 
@@ -11,7 +10,7 @@ const VenuesListRecPoly = ({ foursquare }) => {
 
   useEffect(() => {
     console.log("useEffect VenuesListRecPoly");
-    const getVenues = async (query, latlon) => {
+    const getVenues = async query => {
       console.log("getVenues");
       const transformPolyCords = polygonCoords.reduce((accum, innerArr) => {
         return accum + innerArr.join(",") + ";";
@@ -25,18 +24,18 @@ const VenuesListRecPoly = ({ foursquare }) => {
       console.log({ data });
       setVenues(data.response.group.results || []);
     };
-    if (polygonCoords.length) getVenues(query, latlon);
-  }, [query, foursquare, latlon, polygonCoords]);
+    if (polygonCoords.length) getVenues(query);
+  }, [query, foursquare, polygonCoords, polygonCoords.length]);
 
   console.log({ venues });
   return (
     <div className="App">
-      <SearchBar setSearchVal={setQueryVal} setLatLon={setLatLon} />
       {/* {venues.length ? JSON.stringify(venues) : null} */}
       <MapGLDrawPoly
         latlon={latlon.split(",")}
         setPolygonCoords={setPolygonCoords}
         venues={venues}
+        setQueryVal={setQueryVal}
       />
       {venues.length ? <VenueRecItems venues={venues} /> : null}
     </div>
