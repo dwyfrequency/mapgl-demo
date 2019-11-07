@@ -7,30 +7,36 @@ const VenuesListRecPoly = ({ foursquare }) => {
   const [query, setQueryVal] = useState("");
   const [venues, setVenues] = useState([]);
   const [latlon, setLatLon] = useState("40.73061,-73.935242");
-  const inputEl = useRef(null);
+  const [polygonCoords, setPolygonCoords] = useState([]);
 
   useEffect(() => {
+    console.log("useEffect VenuesListRecPoly");
     const getVenues = async (query, latlon) => {
+      console.log("getVenues");
+      const transformPolyCords = polygonCoords.reduce((accum, innerArr) => {
+        return accum + innerArr.join(",") + ";";
+      }, "");
+      console.log({ transformPolyCords });
       const data = await foursquare.venues.recommendations({
         query,
-        ll: latlon,
+        polygon: transformPolyCords,
         limit: 5
       });
+      console.log({ data });
       setVenues(data.response.group.results || []);
     };
-    if (query) getVenues(query, latlon);
-  }, [query, foursquare, latlon]);
+    if (polygonCoords.length) getVenues(query, latlon);
+  }, [query, foursquare, latlon, polygonCoords]);
 
-  const getDrawData = () => {
-    // `current` points to the mounted text input element
-    console.log(inputEl.draw.getAll());
-  };
-
+  console.log({ venues });
   return (
     <div className="App">
       <SearchBar setSearchVal={setQueryVal} setLatLon={setLatLon} />
       {/* {venues.length ? JSON.stringify(venues) : null} */}
-      <MapGLDrawPoly latlon={latlon.split(",")} ref={inputEl} />
+      <MapGLDrawPoly
+        latlon={latlon.split(",")}
+        setPolygonCoords={setPolygonCoords}
+      />
       {venues.length ? <VenueRecItems venues={venues} /> : null}
     </div>
   );

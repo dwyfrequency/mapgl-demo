@@ -10,7 +10,13 @@ const Map = ReactMapboxGl({
 
 class MapGLDrawPoly extends Component {
   handleButtonClick = () => {
-    console.log(this.drawControl.draw.getAll()); // Or any other API method
+    const data = this.drawControl.draw.getAll(); // Or any other API method
+    console.log(data);
+    const poly = data.features[0].geometry.coordinates.map(arr =>
+      arr.reverse()
+    );
+    console.log({ poly });
+    this.props.setPolygonCoords(poly);
   };
 
   render() {
