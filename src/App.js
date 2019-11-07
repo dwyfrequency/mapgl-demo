@@ -22,8 +22,13 @@ const App = () => {
         render={() => <VenuesList foursquare={foursquare} />}
       />
       <Route
+        exact
         path={"/venues/recommendations"}
         render={() => <VenuesListRec foursquare={foursquare} />}
+      />{" "}
+      <Route
+        path={"/venues/recommendations/poly"}
+        render={() => <h1>Hello</h1>}
       />{" "}
     </Router>
   );
