@@ -12,12 +12,12 @@ const Map = ReactMapboxGl({
 class MapGLDrawPoly extends Component {
   handleButtonClick = () => {
     const data = this.drawControl.draw.getAll(); // Or any other API method
-    console.log(data);
-    const poly = data.features[0].geometry.coordinates.map(arr =>
-      arr.reverse()
-    );
-    console.log({ poly });
-    this.props.setPolygonCoords(poly);
+    if (data.features.length) {
+      const poly = data.features[0].geometry.coordinates.map(arr =>
+        arr.reverse()
+      );
+      this.props.setPolygonCoords(poly);
+    }
   };
 
   render() {
