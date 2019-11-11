@@ -5,6 +5,11 @@ import VenuesList from "./components/Venues/VenuesList";
 import NavBar from "./components/NavBar";
 import VenuesListRec from "./components/VenueRecs/VenuesListRec";
 import VenuesListRecPoly from "./components/VenueRecs/VenuesListRecPoly";
+import { toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+
+// Adding toast
+toast.configure();
 
 // https://stackoverflow.com/questions/48699820/how-do-i-hide-api-key-in-create-react-app
 const CLIENT_ID = process.env.REACT_APP_CLIENT_ID;

@@ -2,12 +2,19 @@ import React, { Component } from "react";
 import ReactMapboxGl, { Layer, Feature, Popup } from "react-mapbox-gl";
 import DrawControl from "react-mapbox-gl-draw";
 import SearchBarPoly from "./SearchBarPoly";
+import { toast } from "react-toastify";
 
 import "@mapbox/mapbox-gl-draw/dist/mapbox-gl-draw.css";
 
 const Map = ReactMapboxGl({
   accessToken: process.env.REACT_APP_MAPGL_ACCESS_CODE
 });
+
+const notifyMissingPolyCoords = () => {
+  toast.error("Please use tool on side of the map to draw polygon", {
+    position: toast.POSITION.TOP_CENTER
+  });
+};
 
 class MapGLDrawPoly extends Component {
   handleButtonClick = () => {
@@ -17,6 +24,8 @@ class MapGLDrawPoly extends Component {
         arr.reverse()
       );
       this.props.setPolygonCoords(poly);
+    } else {
+      notifyMissingPolyCoords();
     }
   };
 
